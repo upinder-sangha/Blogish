@@ -1,0 +1,62 @@
+
+body {
+	text-align: center;
+	background-color: #393e46;
+}
+.navbar{
+	background-color: #232931;
+}
+.background {
+	padding: 6% 12%;
+}
+h1,h4{
+	color:#eeeeee;
+	padding:10px;
+}
+
+.publish-button{
+	background-color: #4ecca3;
+	margin:30px;
+}
+.form-inline{
+	/* margin: 5px; */
+	display: block;
+}
+.modal{
+	text-align: left;
+}
+.blogger-search{
+	margin:30px;
+}
+
+/* modal css */
+.login-form form {
+	margin-bottom: 15px;
+	 background: #f7f7f7;
+	 padding: 30px;
+}
+
+.login-form .hint-text {
+  color: #777;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+
+.or-seperator {
+	 margin: 20px 0 10px;
+	 text-align: center;
+	 border-top: 1px solid #ccc;
+}
+.or-seperator i {
+	 padding: 0 10px;
+	 background: #f7f7f7;
+	 position: relative;
+	 top: -11px;
+	 z-index: 1;
+}
+
+.social-btn .btn i {
+  margin: 4px 15px  0 5px;
+	 min-width: 15px;
+}

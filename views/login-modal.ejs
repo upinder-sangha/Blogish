@@ -1,0 +1,47 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<div class="modal-body">
+				<div class="login-form">
+
+					<div class="text-center social-btn">
+						<a href="#" class="btn btn-outline-primary btn-block"><i class="fa fa-facebook"></i> Sign in with<b>Facebook</b></a>
+						<a href="#" class="btn btn-outline-danger btn-block"><i class="fa fa-google"></i> Sign in with<b>Google</b></a>
+					</div>
+
+					<div class="or-seperator"><i>or</i></div>
+
+					<form action="" method="post">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+							</div>
+							<input type="email" class="form-control" placeholder="Email">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+							</div>
+							<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-dark btn-block login-btn">Sign in</button>
+						</div>
+					</form>
+
+					<div class="hint-text small">Don't have an account?
+						<a href="#" class="text-success" data-toggle="modal" data-target="#registerModal">Register Now!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
