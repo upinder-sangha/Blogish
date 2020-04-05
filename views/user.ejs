@@ -12,20 +12,25 @@
 
 <body>
 
-	<%- include("navbar-logged-out"); -%>
+	<%- include("navbar-logged-in"); -%>
 
-	<div class="container-fluid home-background">
-		<h1>Publish your passions, your way</h1>
-		<h4>Create a unique and beautiful blog. It’s easy and free.</h4>
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-lg publish-button" data-toggle="modal" data-target="#loginModal">Publish your blog</button>
+	<div class="container-fluid user-background">
+		<nav>
+			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+			</div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
-		<!-- Modal for Login -->
-		<%- include("login-modal"); -%>
-		<!-- Modal for Register -->
-		<%- include("register-modal"); -%>
+				<%- include("blog-cards"); -%>
 
-
+			</div>
+			<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+				<%- include("create-blog"); -%>
+			</div>
+		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

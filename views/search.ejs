@@ -14,17 +14,11 @@
 
 	<%- include("navbar-logged-out"); -%>
 
-	<div class="container-fluid home-background">
-		<h1>Publish your passions, your way</h1>
-		<h4>Create a unique and beautiful blog. It’s easy and free.</h4>
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-lg publish-button" data-toggle="modal" data-target="#loginModal">Publish your blog</button>
+	<div class="container-fluid user-background">
+		<%- include("blog-cards"); -%>
 
-		<!-- Modal for Login -->
 		<%- include("login-modal"); -%>
-		<!-- Modal for Register -->
 		<%- include("register-modal"); -%>
-
 
 	</div>
 

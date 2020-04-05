@@ -3,12 +3,18 @@ body {
 	text-align: center;
 	background-color: #393e46;
 }
+
 .navbar{
 	background-color: #232931;
 }
-.background {
+
+.home-background {
 	padding: 6% 12%;
 }
+.user-background{
+	padding: 6% 6%;
+}
+
 h1,h4{
 	color:#eeeeee;
 	padding:10px;
@@ -25,9 +31,7 @@ h1,h4{
 .modal{
 	text-align: left;
 }
-.blogger-search{
-	margin:30px;
-}
+
 
 /* modal css */
 .login-form form {
@@ -59,4 +63,9 @@ h1,h4{
 .social-btn .btn i {
   margin: 4px 15px  0 5px;
 	 min-width: 15px;
+}
+
+/* nav */
+.nav-link,label{
+	color:#eeeeee;
 }
