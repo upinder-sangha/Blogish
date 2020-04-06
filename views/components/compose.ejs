@@ -1,25 +1,15 @@
 <div class="container-fluid" style="padding-top: 10px; text-align: left;">
-	<form action="/compose" method="post" onsubmit="return validateForm()" required name="myForm">
+	<form action="/compose" method="post">
 
 		<div class="form-group">
 			<label for="Title">Title</label>
-			<input name="blogTitle" class="form-control form-control-sm" type="text" id="Title">
+			<input name="blogTitle" class="form-control form-control-sm" type="text" id="Title"  required="required">
 
 			<label for="body">Body</label>
-			<textarea name="blogBody" class="form-control" id="body" rows="3"></textarea>
+			<textarea name="blogBody" class="form-control" id="body" rows="3"  required="required"></textarea>
 		</div>
 
 		<button type="submit" class="btn btn-dark">Publish</button>
 
 	</form>
-	<script>
-		function validateForm() {
-			var x = document.forms["myForm"]["blogTitle"].value;
-			var y = document.forms["myForm"]["blogBody"].value;
-			if (!x || !y) {
-				alert("You can't leave the title or body fields empty.");
-				return false;
-			}
-		}
-	</script>
 </div>
