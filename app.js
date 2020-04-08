@@ -171,7 +171,7 @@ app.get("/logout", function (req, res) {
 
 app.get("/user/:user", function (req, res) {
 	if (req.isAuthenticated()) {
-		res.render("user", { blogs: req.user.blogs });
+		res.render("user", { blogs: req.user.blogs, user: req.user });
 	}
 	else {
 		res.redirect("/");
@@ -196,7 +196,7 @@ app.get("/blog/:blogId", function (req, res) {
 			res.redirect("/");
 		else {
 			if (req.isAuthenticated()) {
-				res.render("blog", { loggedIn: true, blog: foundBlog });
+				res.render("blog", { loggedIn: true, blog: foundBlog, user: req.user });
 			}
 			else {
 				res.render("blog", { loggedIn: false, blog: foundBlog });
@@ -208,12 +208,12 @@ app.get("/blog/:blogId", function (req, res) {
 
 
 app.route("/search")
-	.get(function (req, res) {
-		res.render("search");
-	})
-
 	.post(function (req, res) {
-		res.redirect("/search");
+		console.log(req.body.searchQuery);
+		Blog.find({ title: { $regex: req.body.searchQuery, $options: "i" } }, function (err, foundBlogs) {
+			// console.log(foundBlogs);
+			res.render("search", { blogs: foundBlogs });
+		});
 	});
 
 
