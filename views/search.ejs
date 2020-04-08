@@ -12,7 +12,11 @@
 
 <body>
 
+	<% if(loggedIn){ %>
+	<%- include("components/navbar-logged-in"); -%>
+	<% }else{ %>
 	<%- include("components/navbar-logged-out"); -%>
+	<% } %>
 
 	<div class="container-fluid user-background">
 		<%- include("components/blog-cards"); -%>
