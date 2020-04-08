@@ -11,6 +11,10 @@ const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const facebookStrategy = require('passport-facebook').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require("multer-storage-cloudinary");
+// const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,13 +30,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-
+// -------------------------------------------------------------------------------------------------------------------------------
 mongoose.connect("mongodb://localhost:27017/blogWebsite", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 const blogSchema = new mongoose.Schema({
 	title: String,
-	body: String
+	body: String,
+	image: String
 });
 const userSchema = new mongoose.Schema({
 	firstName: String,
@@ -47,6 +52,7 @@ userSchema.plugin(findOrCreate);
 const Blog = mongoose.model("Blog", blogSchema);
 const User = mongoose.model("User", userSchema);
 
+// ----------------------------------------------------------------------------------------------------------------------------
 // passport.use(User.createStrategy());
 passport.use(new LocalStrategy({
 	usernameQueryFields: ['email']
@@ -92,7 +98,25 @@ passport.deserializeUser(function (id, done) {
 	});
 });
 // --------------------------------------------------------------------------------------------------------------------
+// const storage = multer.diskStorage({
+// 	destination: function (req, file, cb) {
+// 		cb(null, 'public/images/uploads');
+// 	},
+// 	filename: function (req, file, cb) {
+// 		cb(null, file.fieldname + '-' + Date.now());
+// 	}
+// });
 
+
+cloudinary.config({
+	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+	api_key: process.env.CLOUDINARY_API_KEY,
+	api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+var storage = multer.diskStorage({});
+const upload = multer({ storage: storage });
+// --------------------------------------------------------------------------------------------------------------------
 var registrationErr = false;
 
 app.get("/", function (req, res) {
@@ -178,17 +202,27 @@ app.get("/user/:user", function (req, res) {
 	}
 });
 
-app.post("/compose", function (req, res) {
-	const blog = new Blog({
-		title: req.body.blogTitle,
-		body: req.body.blogBody
-	});
-	blog.save();
-	User.findOneAndUpdate({ email: req.user.email }, { $push: { blogs: blog } }, { useFindAndModify: false }, function (err, user) {
-		if (!err)
-			res.redirect("/user/" + req.user.email);
+app.post('/compose', upload.single('image'), function (req, res) {
+	cloudinary.v2.uploader.upload(req.file.path,{folder:	"Blog Website/Blog Images"+req.user.email, "width": 1280, "height": 720, "crop": "pad", },function (err,data) {
+
+		if (!err) {
+			console.log(data.public_id);
+			const blog = new Blog({
+				title: req.body.blogTitle,
+				body: req.body.blogBody,
+				image: data.url,
+			});
+			blog.save();
+			User.findOneAndUpdate({ email: req.user.email }, { $push: { blogs: blog } }, { useFindAndModify: false }, function (err, user) {
+				if (!err)
+					res.redirect("/user/" + req.user.email);
+			});
+		}
+		else
+			console.log(err);
 	});
 });
+
 
 app.get("/blog/:blogId", function (req, res) {
 	Blog.findById(req.params.blogId, function (err, foundBlog) {
