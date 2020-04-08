@@ -9,9 +9,9 @@
 		<div class="col">
 			<div class="card border-light mb-3">
 				<img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="card-img-top" alt="...">
-				<a href="#" class="card-header btn stretched-link"><%= blog.title %></a>
+				<a href="/blog/<%= blog._id %>" class="card-header btn stretched-link"><%= blog.title %></a>
 				<div class="card-body">
-					<p class="card-text"><%= blog.body.slice(0, 100) %> ...</p>
+					<p class="card-text"><%= blog.body.slice(0, 90) %> ...</p>
 				</div>
 			</div>
 		</div>

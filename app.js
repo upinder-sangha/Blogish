@@ -94,6 +94,7 @@ passport.deserializeUser(function (id, done) {
 // --------------------------------------------------------------------------------------------------------------------
 
 var registrationErr = false;
+
 app.get("/", function (req, res) {
 	if (req.isAuthenticated()) {
 		res.redirect("/user/" + req.user.email);
@@ -167,15 +168,6 @@ app.get("/logout", function (req, res) {
 	res.redirect("/");
 });
 
-app.route("/search")
-	.get(function (req, res) {
-		res.render("search");
-	})
-
-	.post(function (req, res) {
-		res.redirect("/search");
-	});
-
 
 app.get("/user/:user", function (req, res) {
 	if (req.isAuthenticated()) {
@@ -191,12 +183,38 @@ app.post("/compose", function (req, res) {
 		title: req.body.blogTitle,
 		body: req.body.blogBody
 	});
+	blog.save();
 	User.findOneAndUpdate({ email: req.user.email }, { $push: { blogs: blog } }, { useFindAndModify: false }, function (err, user) {
 		if (!err)
 			res.redirect("/user/" + req.user.email);
 	});
 });
 
+app.get("/blog/:blogId", function (req, res) {
+	Blog.findById(req.params.blogId, function (err, foundBlog) {
+		if (err)
+			res.redirect("/");
+		else {
+			if (req.isAuthenticated()) {
+				res.render("blog", { loggedIn: true, blog: foundBlog });
+			}
+			else {
+				res.render("blog", { loggedIn: false, blog: foundBlog });
+			}
+		}
+	});
+
+});
+
+
+app.route("/search")
+	.get(function (req, res) {
+		res.render("search");
+	})
+
+	.post(function (req, res) {
+		res.redirect("/search");
+	});
 
 
 
