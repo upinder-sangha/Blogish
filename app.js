@@ -202,11 +202,38 @@ app.get("/user/:user", function (req, res) {
 	}
 });
 
+// app.post('/compose', upload.array('image', 10), function (req, res) {
+// 	const email = req.user.email;
+// 	console.log(req.files);
+// 	const imageurls = [];
+// 	req.files.forEach(file => {
+// 		cloudinary.v2.uploader.upload(file.path, { folder: "Blog Website/Blog Images/" + email }, function (err, data) {
+
+// 			if (!err) {
+// 				console.log(data.url);
+// 				imageurls.push(data.url);
+// 			}
+// 			else
+// 				console.log(err);
+// 		});
+// 	});
+// 	console.log(imageurls);
+// 	const blog = new Blog({
+// 		title: req.body.blogTitle,
+// 		body: req.body.blogBody,
+// 		image: imageurls
+// 	});
+// 	blog.save();
+// 	User.findOneAndUpdate({ email: req.user.email }, { $push: { blogs: blog } }, { useFindAndModify: false }, function (err, user) {
+// 		if (!err)
+// 			res.redirect("/user/" + req.user.email);
+// 	});
+
+// });
 app.post('/compose', upload.single('image'), function (req, res) {
-	cloudinary.v2.uploader.upload(req.file.path,{folder:	"Blog Website/Blog Images"+req.user.email, "width": 1280, "height": 720, "crop": "pad", },function (err,data) {
+	cloudinary.v2.uploader.upload(req.file.path, { folder: "Blog Website/Blog Images" + req.user.email }, function (err, data) {
 
 		if (!err) {
-			console.log(data.public_id);
 			const blog = new Blog({
 				title: req.body.blogTitle,
 				body: req.body.blogBody,
@@ -222,7 +249,6 @@ app.post('/compose', upload.single('image'), function (req, res) {
 			console.log(err);
 	});
 });
-
 
 app.get("/blog/:blogId", function (req, res) {
 	Blog.findById(req.params.blogId, function (err, foundBlog) {

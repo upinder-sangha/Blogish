@@ -4,7 +4,9 @@
 		<%blogs.forEach(function(blog){ %>
 		<div class="col">
 			<div class="card border-light mb-3">
-				<img src="<%= blog.image %>" class="card-img-top" alt="...">
+				<div class="embed-responsive embed-responsive-4by3">
+					<image class="embed-responsive-item" style="object-fit:contain" src="<%= blog.image %>"></image>
+				 </div>
 				<a href="/blog/<%= blog._id %>" class="card-header btn stretched-link"><%= blog.title %></a>
 				<div class="card-body">
 					<p class="card-text"><%= blog.body.slice(0, 90) %> ...</p>

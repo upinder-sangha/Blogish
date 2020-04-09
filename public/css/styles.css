@@ -2,10 +2,15 @@
 body {
 	text-align: center;
 	background-color: #393e46;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .navbar{
 	background-color: #232931;
+}
+.navbar-brand{
+	font-family: 'Allura', cursive;
+	font-size:1.5rem;
 }
 
 .home-background {
