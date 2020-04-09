@@ -7,9 +7,10 @@
 	<div class="carousel-inner">
 
 		<div class="carousel-item active">
-			<div class="embed-responsive embed-responsive-16by9">
+			<div class="embed-responsive embed-responsive-16by9 d-none d-lg-block" id="carouselImage">
 				<image class="embed-responsive-item" style="object-fit:contain" src="<%= blog.image %>"></image>
 			</div>
+			<img class="d-block w-100 d-lg-none" src="<%= blog.image %>" alt="First slide">
 		</div>
 
 	</div>

@@ -1,25 +1,26 @@
 <nav class="navbar navbar-expand-md navbar-dark">
-	<a class="navbar-brand" href="#">
-		<img src="/favicon_io/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
-		Blogish
-	</a>
+
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+	<a class="navbar-brand" href="/">
+		<img src="/favicon_io/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+		Blogish
+	</a>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<form action="/search" method="POST" class="form-inline">
 			<input name="searchQuery" class="form-control form-control-sm my-2 my-sm-0" type="search" placeholder="Search">
 			<button class="btn btn-sm btn-dark " type="submit">Search</button>
 		</form>
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item mx-sm-3">
+			<!-- <li class="nav-item mx-sm-3">
 				<a class="nav-link" href="/">Home</a>
+			</li> -->
+			<li class="nav-item m-1 mt-2 mt-md-1">
+				<button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#loginModal">Login</button>
 			</li>
 			<li class="nav-item m-1">
-				<button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#loginModal">Login</button>
-			</li>
-			<li class="nav-item m-1">
-				<button type="button" class="btn btn-outline-light" data-toggle="modal" id="registerButton" data-target="#registerModal">Register</button>
+				<button type="button" class="btn btn-sm btn-light" data-toggle="modal" id="registerButton" data-target="#registerModal">Register</button>
 			</li>
 		</ul>
 	</div>

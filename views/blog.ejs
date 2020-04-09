@@ -27,7 +27,7 @@
 		<!-- Modal -->
 		<div class="modal fade" id="blogModal" tabindex="-1" data-backdrop="static" role="dialog">
 			<div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
-				<div class="modal-content">
+				<div class="modal-content"  style="background-color:#eeeeee ;">
 					<div class="modal-header">
 						<h5 class="modal-title" id="blogModalTitle">Upinder</h5>
 						<a href="/" type="button" class="close" aria-label="Close">
@@ -38,9 +38,9 @@
 
 						<%- include("components/carousel"); -%>
 
-						<div class="card border-light">
-							<div class="card-body">
-								<h5 class="card-title"><%= blog.title %></h5>
+						<div class="card border-left-0 border-bottom-0 border-right-0">
+							<div class="card-body" style="background-color:#eeeeee ;">
+								<h3 class="card-title"><%= blog.title %></h3>
 								<p class="card-text"><%= blog.body %></p>
 							</div>
 						</div>
@@ -52,10 +52,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
-
 
 
 		<!-- Modal for Login -->

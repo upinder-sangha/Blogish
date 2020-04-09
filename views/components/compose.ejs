@@ -9,10 +9,17 @@
 			<textarea name="blogBody" class="form-control" id="body" rows="3" required="required"></textarea>
 
 			<label for="exampleFormControlFile1">Image</label>
-			<input name="image" type="file"accept="image/*" class="form-control-file" id="exampleFormControlFile1">
+
+			<div class="custom-file">
+				<input name="image" type="file" accept="image/*" class="custom-file-input" id="customFile">
+				<label class="custom-file-label" for="customFile">Choose file</label>
+			</div>
+
+			<!-- <input name="image" type="file" accept="image/*" class="form-control-file" id="exampleFormControlFile1"> -->
 		</div>
 
-		<button type="submit" class="btn btn-dark">Publish</button>
+		<button type="submit" class="btn btn-light mt-3">Publish</button>
 
 	</form>
 </div>
+

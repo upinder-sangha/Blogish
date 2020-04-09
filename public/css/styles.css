@@ -1,39 +1,45 @@
-
 body {
 	text-align: center;
 	background-color: #393e46;
 	font-family: 'Open Sans', sans-serif;
 }
 
-.navbar{
+.navbar {
 	background-color: #232931;
+	text-align: left;
 }
-.navbar-brand{
+
+.navbar-brand {
 	font-family: 'Allura', cursive;
-	font-size:1.5rem;
+	font-size: 1.5rem;
 }
 
 .home-background {
 	padding: 6% 12%;
 }
-.user-background{
+
+.user-background {
 	padding: 6% 6%;
 }
 
-h1,h4,h6{
-	color:#eeeeee;
-	padding:10px;
+h1,
+h4,
+h6 {
+	color: #eeeeee;
+	padding: 10px;
 }
 
-.publish-button{
+.publish-button {
 	background-color: #4ecca3;
-	margin:30px;
+	margin: 30px;
 }
-.form-inline{
+
+.form-inline {
 	/* margin: 5px; */
 	display: block;
 }
-.modal{
+
+.modal {
 	text-align: left;
 }
 
@@ -41,36 +47,38 @@ h1,h4,h6{
 /* modal css */
 .login-form form {
 	margin-bottom: 15px;
-	 background: #f7f7f7;
-	 padding: 30px;
+	background: #f7f7f7;
+	padding: 30px;
 }
 
 .login-form .hint-text {
-  color: #777;
-  padding-bottom: 15px;
-  text-align: center;
+	color: #777;
+	padding-bottom: 15px;
+	text-align: center;
 }
 
 
 .or-seperator {
-	 margin: 20px 0 10px;
-	 text-align: center;
-	 border-top: 1px solid #ccc;
+	margin: 20px 0 10px;
+	text-align: center;
+	border-top: 1px solid #ccc;
 }
+
 .or-seperator i {
-	 padding: 0 10px;
-	 background: #f7f7f7;
-	 position: relative;
-	 top: -11px;
-	 z-index: 1;
+	padding: 0 10px;
+	background: #f7f7f7;
+	position: relative;
+	top: -11px;
+	z-index: 1;
 }
 
 .social-btn .btn i {
-  margin: 4px 15px  0 5px;
-	 min-width: 15px;
+	margin: 4px 15px 0 5px;
+	min-width: 15px;
 }
 
 /* nav */
-.nav-link,label{
-	color:#eeeeee;
+.nav-link,
+label {
+	color: #eeeeee;
 }

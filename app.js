@@ -14,7 +14,6 @@ const findOrCreate = require('mongoose-findorcreate');
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require("multer-storage-cloudinary");
-// const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -231,7 +230,7 @@ app.get("/user/:user", function (req, res) {
 
 // });
 app.post('/compose', upload.single('image'), function (req, res) {
-	cloudinary.v2.uploader.upload(req.file.path, { folder: "Blog Website/Blog Images" + req.user.email }, function (err, data) {
+	cloudinary.v2.uploader.upload(req.file.path, { folder: "Blogish/Blog Images" + req.user.email }, function (err, data) {
 
 		if (!err) {
 			const blog = new Blog({
@@ -246,7 +245,7 @@ app.post('/compose', upload.single('image'), function (req, res) {
 			});
 		}
 		else
-			console.log(err);
+			res.send(err);
 	});
 });
 
