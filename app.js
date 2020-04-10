@@ -30,7 +30,7 @@ app.use(passport.session());
 
 
 // -------------------------------------------------------------------------------------------------------------------------------
-mongoose.connect("mongodb+srv://Upinder:123@cluster0-l1zym.mongodb.net/blogishDB", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://sangha:123@cluster0-mefgn.mongodb.net/blogishDB", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 const blogSchema = new mongoose.Schema({
