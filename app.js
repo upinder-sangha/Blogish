@@ -60,7 +60,7 @@ passport.use(new LocalStrategy({
 passport.use(new GoogleStrategy({
 	clientID: process.env.GOOGLE_CLIENT_ID,
 	clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-	callbackURL: "http://localhost:3000/auth/google/user"
+	callbackURL: "https://frozen-woodland-68686.herokuapp.com/auth/google/user"
 },
 	function (accessToken, refreshToken, profile, cb) {
 		User.findOrCreate(
@@ -74,7 +74,7 @@ passport.use(new GoogleStrategy({
 passport.use(new facebookStrategy({
 	clientID: process.env.FACEBOOK_APP_ID,
 	clientSecret: process.env.FACEBOOK_APP_SECRET,
-	callbackURL: "http://localhost:3000/auth/facebook/user",
+	callbackURL: "https://frozen-woodland-68686.herokuapp.com/auth/facebook/user",
 	profileFields: ['id', 'emails', 'name']
 },
 	function (accessToken, refreshToken, profile, cb) {
