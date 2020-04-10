@@ -30,7 +30,7 @@ app.use(passport.session());
 
 
 // -------------------------------------------------------------------------------------------------------------------------------
-mongoose.connect("mongodb://localhost:27017/blogWebsite", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://Upinder:123@cluster0-l1zym.mongodb.net/blogishDB", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 
 const blogSchema = new mongoose.Schema({
@@ -268,7 +268,6 @@ app.get("/blog/:blogId", function (req, res) {
 
 app.route("/search")
 	.post(function (req, res) {
-		console.log(req.body.searchQuery);
 		Blog.find({ title: { $regex: req.body.searchQuery, $options: "i" } }, function (err, foundBlogs) {
 			// console.log(foundBlogs);
 			if (req.isAuthenticated()) {
@@ -282,7 +281,10 @@ app.route("/search")
 	});
 
 
-
-app.listen("3000", function () {
+let port = process.env.PORT;
+if (port == null || port == "") {
+	port = 3000;
+}
+app.listen(port, function () {
 	console.log("app started on port 3000");
 });

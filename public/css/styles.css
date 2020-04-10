@@ -15,7 +15,8 @@ body {
 }
 
 .home-background {
-	padding: 6% 12%;
+	padding-top: 6%;
+	padding-bottom: 6%;
 }
 
 .user-background {
