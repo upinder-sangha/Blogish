@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require('../models/user');
 const multer = require('multer');
 const cloudinary = require('cloudinary');
+const Blog = require('../models/blog');
 
 var storage = multer.diskStorage({});
 const upload = multer({ storage: storage });
